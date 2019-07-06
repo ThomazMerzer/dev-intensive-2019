@@ -15,22 +15,21 @@ object Utils {
     }
 
     fun toInitials(firstName: String? = null, lastName: String? = null): String? {
+
         val pairForNames = firstName to lastName
 
-        var initials: String? = "${pairForNames.first?.getOrNull(0)?.toUpperCase()}," +
+        var initials: String? = "${pairForNames.first?.getOrNull(0)?.toUpperCase()}, " +
                 "${pairForNames.second?.getOrNull(0)?.toUpperCase()}"
 
         if(pairForNames.first.isNullOrBlank() && pairForNames.second.isNullOrBlank()) {
             initials = null
         } else if(pairForNames.first.isNullOrBlank() || pairForNames.second.isNullOrBlank()) {
-            val catchBlankOrNull: String?
-                if(pairForNames.first.isNullOrBlank()) {
-                    catchBlankOrNull = pairForNames.first
-                } else if (pairForNames.second.isNullOrBlank()) {
-                    catchBlankOrNull = pairForNames.second
-                }
-            //TODO Закончить проверку на один пробел
-
+            if(pairForNames.first.isNullOrBlank()) {
+                initials = "${pairForNames.second?.getOrNull(0)?.toUpperCase()}"
+            }
+            else if(pairForNames.second.isNullOrBlank()) {
+                initials = "${pairForNames.first?.getOrNull(0)?.toUpperCase()}"
+            }
         }
 
         return initials
