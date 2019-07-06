@@ -14,7 +14,16 @@ object Utils {
         TODO("not implemented") //написать функцию, которая переводи кириллицу в латинские символы
     }
 
-    fun toInitials(firstName: String?, lastName: String?): String {
-        TODO("not implemented") //написать функцию, которая конвертирует имя и фамилию в инициалы
+    fun toInitials(firstName: String? = null, lastName: String? = null): String? {
+        val pairTest = firstName to lastName
+
+        var initials: String? = "${pairTest.first?.getOrNull(0)?.toUpperCase()}," +
+                "${pairTest.second?.getOrNull(0)?.toUpperCase()}"
+
+        if(pairTest.first == null && pairTest.second == null) {
+            initials = null
+        }
+
+        return initials
     }
 }
