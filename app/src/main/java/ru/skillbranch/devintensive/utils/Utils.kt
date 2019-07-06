@@ -4,12 +4,14 @@ import java.lang.StringBuilder
 
 object Utils {
     fun parseFullName(fullName: String? = null): Pair<String?, String?> {
-        //TODO fix me
         val parts: List<String>? = fullName?.split(" ")
 
         val firstName = parts?.getOrNull(0)
         val lastName = parts?.getOrNull(1)
-        return Pair(firstName, lastName)
+
+        return if(firstName.isNullOrBlank() && lastName.isNullOrBlank()) {
+            Pair(null, null)
+        } else Pair(firstName, lastName)
     }
 
     fun transliteration(payload: String, divider: String = " "): String {
