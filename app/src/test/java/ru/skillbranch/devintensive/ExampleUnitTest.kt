@@ -2,10 +2,7 @@ package ru.skillbranch.devintensive
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.BaseMessage
 import ru.skillbranch.devintensive.models.Chat
 import ru.skillbranch.devintensive.models.User
@@ -113,6 +110,21 @@ class ExampleUnitTest {
     fun testBuilder() {
         val userBuild = User.Builder().id("hh").isOnline(true)
         println(userBuild)
+
+
+    }
+
+    @Test
+    fun testPlurals() {
+        val test = TimeUnits.SECOND.plurals(11)
+        println("Юзер был в сети $test назад")
+    }
+
+    @Test
+    fun test_initials() {
+        val str = "Миша"
+        val str2 = "Барашкин"
+        println(Utils.toInitials(str, str2))
     }
 
 }
