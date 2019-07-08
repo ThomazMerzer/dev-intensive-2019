@@ -114,7 +114,7 @@ fun TimeUnits.plurals(value: Int): String {
     tempStr = when (timeUnit) {
         "SECOND" -> if (value in one) "секунду" else if (value in twoToFour) "секунды" else "секунд"
         "MINUTE" -> if (value in one) "минуту" else if (value in twoToFour) "минуты" else "минут"
-        "HOUR" -> if (value in one) "ас" else if (value in twoToFour) "часа" else "часов"
+        "HOUR" -> if (value in one) "час" else if (value in twoToFour) "часа" else "часов"
         "DAY" -> if (value in one) "день" else if (value in twoToFour) "дня" else "дней"
         else -> ""
     }
