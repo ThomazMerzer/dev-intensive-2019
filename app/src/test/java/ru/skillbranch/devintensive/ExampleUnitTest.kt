@@ -99,7 +99,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_trans() {
+    fun test_transliteration() {
         val testString = "Миша Маша Лёша Инакентий Игорь"
         println(Utils.transliteration(testString))
         val testString2 = ""
@@ -107,7 +107,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun testBuilder() {
+    fun test_builder() {
         val userBuild = User.Builder().id("hh").isOnline(true)
         println(userBuild)
 
@@ -115,7 +115,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun testPlurals() {
+    fun test_plurals() {
         val test = TimeUnits.SECOND.plurals(11)
         println("Юзер был в сети $test назад")
     }
@@ -125,6 +125,21 @@ class ExampleUnitTest {
         val str = "Миша"
         val str2 = "Барашкин"
         println(Utils.toInitials(str, str2))
+    }
+
+    @Test
+    fun test_truncate() {
+        val str1 = "Value по умолчанию".truncate()
+        val str2 = "Своё value".truncate(5)
+        val str3 = "Пробелы в строке                            ".truncate()
+        val str4 = "0 в аргументе".truncate(0)
+//        val str5 = "Бросаем исключение".truncate(999)
+
+    }
+
+    @Test
+    fun test_stripHtml() {
+        val str = ">html<".stripHtml()
     }
 
 }
