@@ -109,4 +109,10 @@ class ExampleUnitTest {
         println(Utils.parseFullName(testString2))
     }
 
+    @Test
+    fun testBuilder() {
+        val userBuild = User.Builder().id("hh").isOnline(true)
+        println(userBuild)
+    }
+
 }
