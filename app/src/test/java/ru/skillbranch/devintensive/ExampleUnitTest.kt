@@ -132,8 +132,9 @@ class ExampleUnitTest {
         val str1 = "Value по умолчанию".truncate()
         val str2 = "Своё value".truncate(5)
         val str3 = "Пробелы в строке                            ".truncate()
-        val str4 = "0 в аргументе".truncate(0)
-//        val str5 = "Бросаем исключение".truncate(999)
+//        val str4 = "0 в аргументе".truncate(0)
+        //old
+        val str5 = "Бросаем исключение".truncate(999)
 
     }
 
