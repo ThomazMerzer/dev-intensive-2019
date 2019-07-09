@@ -100,10 +100,18 @@ class ExampleUnitTest {
 
     @Test
     fun test_transliteration() {
-        val testString = "Миша Маша Лёша Инакентий Игорь"
-        println(Utils.transliteration(testString))
-        val testString2 = ""
-        println(Utils.parseFullName(testString2))
+        assertEquals("Zhenya Stereotipov", Utils.transliteration("Женя Стереотипов"))
+        assertEquals("Amazing_Petr", Utils.transliteration("Amazing Петр","_"))
+
+        /* additional tests */
+        assertEquals("iVan Stereotizhov", Utils.transliteration("иВан Стереотижов"))
+        assertEquals("Amazing_PeZhr", Utils.transliteration("Amazing ПеЖр", "_"))
+        assertEquals("aAbBvVgGdDeEeEzhZhzZiIiIkKlL", Utils.transliteration("аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛ"))
+        assertEquals("mMnNoOpPrRsStTuUfFhHcCshShsh'Sh'", Utils.transliteration("мМнНоОпПрРсСтТуУфФхХцЦшШщЩ"))
+        assertEquals("eEyuYuyaYa", Utils.transliteration("ъЪьЬэЭюЮяЯ"))
+        assertEquals("123|!,^-=+><|english", Utils.transliteration("123 !,^-=+>< english", "|"))
+        assertEquals("Zhizha ZhiZhnaYa", Utils.transliteration("Жижа ЖиЖнаЯ"))
+        assertEquals("Sobaka is a dog", Utils.transliteration("Собака dog", " is a "))
     }
 
     @Test
@@ -129,18 +137,12 @@ class ExampleUnitTest {
 
     @Test
     fun test_truncate() {
-        val str1 = "Value по умолчанию".truncate()
-        val str2 = "Своё value".truncate(5)
-        val str3 = "Пробелы в строке                            ".truncate()
-//        val str4 = "0 в аргументе".truncate(0)
-        //old
-        val str5 = "Бросаем исключение".truncate(999)
-
+        val str = ("hhhhhhhhhhhhhhhhhhh").truncate(4)
     }
 
     @Test
     fun test_stripHtml() {
-        val str = ">html<".stripHtml()
+        val str = ">html<"
     }
 
 }
